@@ -34,6 +34,17 @@ export const fetchPosts = uid => async dispatch =>
     });
   });
 
+
+// export function fetchPost(id) {
+// const url = `${ROOT_URL}/posts/${id}${API_KEY}`;
+// const body = axios.get(url);
+// return {
+//   type: FETCH_POST,
+//   payload: body
+// };
+//}
+
+
 export const fetchPost = (uid, key) => async dispatch =>
   blog
     .child(uid)
@@ -46,15 +57,6 @@ export const fetchPost = (uid, key) => async dispatch =>
         payload: post
       });
     });
-
-// export function fetchPost(id) {
-// const url = `${ROOT_URL}/posts/${id}${API_KEY}`;
-// const body = axios.get(url);
-// return {
-//   type: FETCH_POST,
-//   payload: body
-// };
-//}
 
 // export function createPost(values, callback) {
 //   // const req = axios

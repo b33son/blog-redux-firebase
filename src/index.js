@@ -15,6 +15,8 @@ import registerServiceWorker from "./registerServiceWorker";
 import PostsIndex from "./containers/posts-index";
 import PostNew from "./components/post-new";
 import PostView from "./containers/post-view";
+import { Link } from "react-dom";
+import { Icon, Header } from "semantic-ui-react";
 import "semantic-ui-css/semantic.min.css";
 //const createStoreWithMiddleware = applyMiddleware(promise)(createStore);
 
@@ -29,6 +31,14 @@ ReactDOM.render(
           <Route exact path="/posts/new" component={PostNew} />
           <Route path="/posts/:id" component={PostView} />
         </Switch>
+        <Header as="h3">
+          <a href="https://github.com/b33son/blog-redux-firebase">
+            <Icon.Group size="big">
+              <Icon name="github" />
+            </Icon.Group>
+            View code on Github{" "}
+          </a>
+        </Header>
       </div>
     </BrowserRouter>
   </Provider>,
