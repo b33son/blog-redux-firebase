@@ -31,11 +31,6 @@ class PostNew extends Component {
   // };
 
   onSubmitForm = values => {
-    console.log("form submitted " + values);
-    // const p = this.props.createPost(values, () => {
-    //   this.props.history.push("/");
-    // });
-
     let id = 1;
     this.props.createPost(id, values, error => {
       if (error) {
@@ -47,7 +42,6 @@ class PostNew extends Component {
   };
 
   render() {
-    // const { value } = this.state;
     const { handleSubmit } = this.props;
 
     return (
@@ -84,7 +78,6 @@ class PostNew extends Component {
 }
 
 function validateForm(values) {
-  // console.log(values) => {title: 'asdf', categories: '', content: 'body or content of blog'}
   const errors = {};
 
   // validate inputs from 'values'

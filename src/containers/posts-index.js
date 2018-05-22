@@ -28,7 +28,6 @@ class PostsIndex extends Component {
   }
 
   onCardViewClick = (e, btn) => {
-    //console.log(e1, e2);
     this.props.history.push(`/posts/${btn.id}`);
   };
 

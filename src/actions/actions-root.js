@@ -13,15 +13,6 @@ export const CREATE_POST = "CREATE_POST";
 const ROOT_URL = "";
 const API_KEY = "";
 
-// export function fetchPosts() {
-// const url = `${ROOT_URL}/posts${API_KE}`;
-// const body = axios.get(url);
-// return {
-//   type: FETCH_POSTS,
-//   payload: body
-// };
-// }
-
 export const fetchPosts = uid => async dispatch =>
   blog.child(uid).on("value", snapshot => {
     // snapshot.forEach(obj => {
@@ -33,17 +24,6 @@ export const fetchPosts = uid => async dispatch =>
       payload: snapshot.val()
     });
   });
-
-
-// export function fetchPost(id) {
-// const url = `${ROOT_URL}/posts/${id}${API_KEY}`;
-// const body = axios.get(url);
-// return {
-//   type: FETCH_POST,
-//   payload: body
-// };
-//}
-
 
 export const fetchPost = (uid, key) => async dispatch =>
   blog
@@ -58,19 +38,6 @@ export const fetchPost = (uid, key) => async dispatch =>
       });
     });
 
-// export function createPost(values, callback) {
-//   // const req = axios
-//   //   .post(`${ROOT_URL}/posts${API_KEY}`, values)
-//   //   .then(() => callback());
-
-//   // return {
-//   //   type: CREATE_POST,
-//   //   payload: req
-//   // };
-
-//   return dispatch => blog.push(values);
-// }
-
 export const createPost = (uid, post, callback) => async dispatch => {
   const postRef = blog
     .child(uid)
@@ -78,15 +45,6 @@ export const createPost = (uid, post, callback) => async dispatch => {
     .set(post, callback);
   console.log(postRef);
 };
-
-// export function deletePost(uid, key, callback) {
-//   const url = `${ROOT_URL}/posts/${key}${API_KEY}`;
-//   const body = axios.delete(url).then(() => callback());
-//   return {
-//     type: DELETE_POST,
-//     payload: key
-//   };
-// }
 
 export const deletePost = (uid, key, callback) => async dispatch => {
   blog
