@@ -6,7 +6,7 @@ import React, { Component } from "react";
 import { connect } from "react-redux";
 import { fetchPosts } from "../actions/actions-root";
 import { Card, Button } from "semantic-ui-react";
-
+import MenuHeader from "../components/menu-header";
 let items = [];
 
 class PostsIndex extends Component {
@@ -18,6 +18,7 @@ class PostsIndex extends Component {
   componentWillReceiveProps(nextProps) {
     items = _.map(nextProps.posts, (post, key) => {
       return {
+        key,
         header: post.title,
         description: post.content,
         meta: post.categories,
@@ -33,7 +34,7 @@ class PostsIndex extends Component {
 
   getExtra = id => {
     return (
-      <Card.Content extra>
+      <Card.Content extra key={id}>
         <div className="ui two buttons">
           <Button onClick={this.onCardViewClick} id={id} basic color="green">
             View
@@ -46,7 +47,7 @@ class PostsIndex extends Component {
   render() {
     return (
       <div>
-        <h3>Posts</h3>
+        <MenuHeader activeItem="posts-view" history={this.props.history} />
         <Card.Group centered items={items} />
       </div>
     );

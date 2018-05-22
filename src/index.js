@@ -16,7 +16,6 @@ import PostsIndex from "./containers/posts-index";
 import PostNew from "./components/post-new";
 import PostView from "./containers/post-view";
 import "semantic-ui-css/semantic.min.css";
-
 //const createStoreWithMiddleware = applyMiddleware(promise)(createStore);
 
 const store = createStore(reducers, {}, applyMiddleware(reduxThunk));

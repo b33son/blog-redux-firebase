@@ -13,17 +13,16 @@ import {
   TextAreaField,
   SelectField
 } from "react-semantic-redux-form";
+import MenuHeader from "../components/menu-header";
 
 const categories = [
   { key: "cat1", text: "cat1", value: "cat1" },
   { key: "cat2", text: "cat2", value: "cat2" }
 ];
 
+let items = [];
+
 class PostNew extends Component {
-  state = {};
-
-  handleChange = (e, { value }) => this.setState({ value });
-
   // Use this pattern if not using react-semantic-redux-form
   // renderTitleField = field => {
   //   return (
@@ -48,35 +47,38 @@ class PostNew extends Component {
   };
 
   render() {
-    const { value } = this.state;
+    // const { value } = this.state;
     const { handleSubmit } = this.props;
 
     return (
-      <Form onSubmit={handleSubmit(this.onSubmitForm)}>
-        <Form.Group widths="equal">
-          <Field
-            name="title"
-            label="Title"
-            component={InputField}
-            placeholder="Title"
-          />
+      <div>
+        <MenuHeader activeItem="post-new" history={this.props.history} />
+        <Form onSubmit={handleSubmit(this.onSubmitForm)}>
+          <Form.Group widths="equal">
+            <Field
+              name="title"
+              label="Title"
+              component={InputField}
+              placeholder="Title"
+            />
 
+            <Field
+              name="categories"
+              label="Categories"
+              placeholder="Category"
+              component={SelectField}
+              options={categories}
+            />
+          </Form.Group>
           <Field
-            name="categories"
-            label="Categories"
-            placeholder="Category"
-            component={SelectField}
-            options={categories}
+            name="content"
+            label="Contents"
+            placeholder="Enter post body..."
+            component={TextAreaField}
           />
-        </Form.Group>
-        <Field
-          name="content"
-          label="Contents"
-          placeholder="Enter post body..."
-          component={TextAreaField}
-        />
-        <Form.Button>Save</Form.Button>
-      </Form>
+          <Form.Button>Save</Form.Button>
+        </Form>
+      </div>
     );
   }
 }

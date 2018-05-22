@@ -8,6 +8,7 @@ import { fetchPost } from "../actions/actions-root";
 import { deletePost } from "../actions/actions-root";
 import { connect } from "react-redux";
 import { Card, Button } from "semantic-ui-react";
+import MenuHeader from "../components/menu-header";
 let items = [];
 
 class PostView extends Component {
@@ -41,7 +42,7 @@ class PostView extends Component {
 
   getExtra = id => {
     return (
-      <Card.Content extra>
+      <Card.Content extra key={id}>
         <div className="ui two buttons">
           <Button onClick={this.onCardDeleteClick} id={id} basic color="red">
             Delete Post
@@ -54,6 +55,7 @@ class PostView extends Component {
   render() {
     return (
       <div>
+        <MenuHeader activeItem="post-view" history={this.props.history} />
         <Card.Group centered items={items} />
       </div>
     );
