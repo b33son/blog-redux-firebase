@@ -2,7 +2,7 @@
  * File: /Users/michaelbeeson/Documents/VSCode/react004-react16/blog-firebase-thunk/src/keys/prod.js
  */
 export const FirebaseConfig = {
-  apiKey: "",
+  apiKey: process.env.REACT_APP_FIREBASE_API_KEY,
   authDomain: "blog-firebase-thunk.firebaseapp.com",
   databaseURL: "https://blog-firebase-thunk.firebaseio.com",
   projectId: "blog-firebase-thunk",

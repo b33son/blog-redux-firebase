@@ -3,7 +3,7 @@
  */
 
 export const FirebaseConfig = {
-  apiKey: "",
+  apiKey: process.env.REACT_APP_FIREBASE_API_KEY,
   authDomain: "blog-firebase-thunk.firebaseapp.com",
   databaseURL: "https://blog-firebase-thunk.firebaseio.com",
   projectId: "blog-firebase-thunk",
